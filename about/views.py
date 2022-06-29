@@ -1,6 +1,12 @@
 from django.shortcuts import render
 from .forms import CommentForm
+from about.models import Comment
+
+
+
 def aboutme(request):
+    comments = Comment.objects.all().order_by('-created_on')
+    
     form = CommentForm()
     if request.method == 'POST':
         form = CommentForm(request.POST)
@@ -11,8 +17,12 @@ def aboutme(request):
 
             )
             comment.save()
+    context = {
+        "comments": comments,
+        "form": form,
+    }
     
-    return render(request, 'aboutme.html')
+    return render(request, 'aboutme.html', context)
     
 
 # Create your views here.

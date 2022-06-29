@@ -1,4 +1,13 @@
-<h1> HELLO </h1>
+{% extends "base.html" %}
+{% block page_content %}
+<div class="col-md-8 offset-md-2">
+
+<h1 align="center"> About Me </h1>
+<hr>
+<p> Yes, yes: indeed I am. The hero coming to save you from the juvenile puerile thoughts that will hold you back from being the epitome of what you can be. Those who find this funny are simply stuck in Peter Pan Sindrum, childlike fools who cannot surpass their primitive urges in an attempt to hide the cruel reality of life from themselves. Once you brake free from the chains of your subconscious protections, you can grow the hell up and start acting like an adult instead of a petulant little child that is undeserving of a second thought. My little diatribe shall serve to free your mind so that you can grow into the man you should be. I am your hero, and you are welcome.
+
+</p>
+<hr>
  <h3>Leave a comment:</h3>
     <form action="/about/{{ post.pk }}" method="post">
         {% csrf_token %}
@@ -17,5 +26,8 @@
         <b>{{ comment.author }}</b> wrote:
     </p>
     <p>{{ comment.body }}</p>
-    <hr>
+    
+
     {% endfor %}
+    </div>
+{% endblock %}

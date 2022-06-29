@@ -5,7 +5,9 @@
 <h1>{{ project.title }}</h1>
 <div class="row">
     <div class="col-md-8">
+    <a href= {{ project.link }} target="_blank">
         <img src="{% static project.image %}" alt="" width="100%">
+    </a>
     </div>
     <div class="col-md-4">
         <h5>About the project:</h5>
@@ -13,6 +15,9 @@
         <br>
         <h5>Technology used:</h5>
         <p>{{ project.technology }}</p>
+        <br>
+        <h5>Link:</h5>
+        <a href= {{ project.link }} target="_blank">{{ project.link }} </a>
     </div>
 </div>
 {% endblock %}
